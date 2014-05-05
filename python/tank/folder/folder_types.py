@@ -1431,7 +1431,7 @@ class ShotgunStep(Entity):
                 # grab the first entity we'll find except user workspaces             
                 break
             
-            elif associated_entity_type and \
+            elif associated_entity_type is not None and \
                  isinstance(sg_parent, Entity) and \
                  sg_parent.get_entity_type() == associated_entity_type:
                 # we have found the specific parent that the step is associated with
@@ -1586,7 +1586,7 @@ class ShotgunTask(Entity):
                 raise TankError("Error in configuration %s - node must be parented "
                                 "under a shotgun entity." % full_path)
             
-            elif associated_entity_type and \
+            elif associated_entity_type is not None and \
                  isinstance(curr_parent, Entity) and \
                  curr_parent.get_entity_type() == associated_entity_type:
                 # we have found the specific parent that the step is associated with
